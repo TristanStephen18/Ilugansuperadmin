@@ -1,35 +1,62 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-    import { getFirestore, collection, getDocs, onSnapshot, doc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyAL0I2_e4RNhtnwavuNrncD21sZAsmslmY",
-        authDomain: "ilugan-database.firebaseapp.com",
-        projectId: "ilugan-database",
-        storageBucket: "ilugan-database.appspot.com",
-        messagingSenderId: "814689984399",
-        appId: "1:814689984399:web:ec6e6715f77d754a6875fa",
-        measurementId: "G-XD470CX22M",
-    };
+const firebaseConfig = {
+  apiKey: "AIzaSyAL0I2_e4RNhtnwavuNrncD21sZAsmslmY",
+  authDomain: "ilugan-database.firebaseapp.com",
+  projectId: "ilugan-database",
+  storageBucket: "ilugan-database.appspot.com",
+  messagingSenderId: "814689984399",
+  appId: "1:814689984399:web:ec6e6715f77d754a6875fa",
+  measurementId: "G-XD470CX22M",
+};
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-    getPassengers();
+// Function to fetch and display passenger data
+function getPassengers() {
+  const passengerscollection = collection(db, "passengers");
+  onSnapshot(passengerscollection, (snapshot) => {
+    const tableBody = document.getElementById("companiesTableBody");
+    tableBody.innerHTML = ""; // Clear the table before appending new data
 
+    snapshot.docs.forEach((doc) => {
+      const data = doc.data();
 
-    async function getPassengers() {
-        const passengerscollection = collection(db, 'passengers');
+      // Create a new row and populate it with user data
+      const row = document.createElement("tr");
 
-        const documents = await getDocs(passengerscollection);
+      let color = "";
+      if(data.status == "offline"){
+        color = 'red';
+      }else{
+        color = 'green';
+      }
 
-        console.log(documents.docs);
+      row.innerHTML = `
+        <td>${doc.id || "N/A"}</td>
+        <td>${data.username || "N/A"}</td>
+        <td>${data.email || "N/A"}</td>
+        <td>${data.type || "N/A"}</td>
+        <td><p id = "status" style="background-color: ${color}">${data.status || "N/A"}</p></td>
+        <td><a href="#" class="btn btn-primary text-white">View</a></td>
+      `;
 
-        documents.forEach((doc) => {
-            console.log(doc.data());
-        });
+      tableBody.appendChild(row);
+    //   const status = document.getElementById('status');
+    //     if(status.innerText == "offline"){
+    //       status.style.backgroundColor = "red";
+    //     }
+    //   console.log(status.innerText);
+    });
+  });
+}
 
-        // onSnapshot(passengerscollection, (snapshot)=>{
-        //     console.log(snapshot);
-        // });
-    }
+// Call the function to populate the table
+getPassengers();

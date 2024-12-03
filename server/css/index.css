@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    background: linear-gradient(to right, #294935, #62af7f);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+.card {
+    background-color:white;
+    color:  rgba(41, 146, 79, 0.5);
+    border-radius: 10px;
+    width: 600px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 5px lightgreen;
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+    border: 5px darkgreen;
+}
+
+h2 {
+    color:  darkgreen;
+    text-align: center;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.form-control {
+    background-color: white;
+    border: 1px solid white;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.form-control:focus {
+    border-color: white;
+    box-shadow: none;
+}
+
+label {
+    color:  darkgreen;
+    margin-bottom: 5px;
+    display: block;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.mt-4 {
+    margin-top: 10px; 
+}
+
+.btn-login {
+    background: linear-gradient(90deg, #1FBF83 0%, #11ED9B 100%);
+    color: white;
+    width: 30%;
+    margin: 20px auto 0; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer; 
+    border: none;   
+    }
+
+.btn-login:hover {
+    opacity: 0.8;
+}
+
+.mb-4 {
+    margin-bottom: 30px; 
+}
+
+.logo {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    width: 25px; 
+}
+
+.title {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    color: #f8f8f8;
+    font-size: 15px;
+    max-width: 450px;
+    white-space: nowrap;
+}
+.form-group{
+    margin-top: 70px;
+}

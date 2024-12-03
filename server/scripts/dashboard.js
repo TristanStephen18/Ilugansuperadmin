@@ -112,9 +112,9 @@ function loadRecentTransactions() {
                 </td>
                 <td>${subscriptionType}</td>
                 <td>
-                    <span class="status-${status === 'Online' ? 'online' : 'offline'}">${status}</span>
+                    <span class="status-${status === 'Online' ? 'online' : 'offline'}" ><p style="background-color: ${status === 'Online' ? 'green' : 'red'}" id="status">${status}</p></span>
                 </td>
-                <td><a href="#" class="text-dark">View</a></td>
+                <td><a href="#" class="btn btn-primary text-white">View</a></td>
             `;
 
             // Append the row to the table body

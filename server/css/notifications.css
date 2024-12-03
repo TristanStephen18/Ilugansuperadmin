@@ -1,0 +1,164 @@
+body {
+    background-color: #f5f7fb;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 60px; /* Space for footer */
+  }
+  .header-top {
+    background-color: white;
+    padding: 1em;      
+    color: #1FBF83;
+    font-weight: lighter;
+    position: relative;
+  }
+  .header-top .container {
+    margin-left: -1em; 
+  }
+  .header-bottom {
+    background: linear-gradient(to right, #294935, #62af7f);
+    padding: 1em;
+  }
+  .dashboard-section {
+    background: linear-gradient(to right, #294935, #62af7f);
+    padding: 2em 1em;
+    color: white;
+    position: relative;
+  }
+  .dashboard-section h1 {
+    margin-bottom: 1em;
+    color: white;
+    margin-left: -45px;
+  }
+  .menu-icon {
+    font-size: 1.5em;
+    color: white;
+    position: absolute;
+    top: -50px;
+    left: 70px;
+    cursor: pointer;
+  }
+  .notification-icon {
+    color: #1FBF83;
+    font-size: 1.5rem;
+    text-decoration: none;
+    position: absolute;
+    right: 1.5em;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .notification-icon:hover {
+    color: #29924F;
+  }
+  #notifications-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .notification-card {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 10px;
+    transition: transform 0.2s ease;
+    margin-left: -40px;
+    width: 1300px;
+    height: 90px;
+  }
+  
+  .notification-card:hover {
+    transform: scale(1.02);
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-section h1 {
+      font-size: 1.5em;
+      text-align: center;
+    }
+  
+    .menu-icon {
+      top: -40px;
+      left: 20px;
+    }
+  
+    #notifications-container {
+      flex-direction: column;
+      padding: 0 1em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header-bottom {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .header-bottom input {
+      margin-bottom: 0.5em;
+      width: 100%;
+    }
+  }
+  
+  .sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background: linear-gradient(to right, #294935, #62af7f);
+    padding-top: 20px;
+    transition: left 0.3s ease;
+    color: white;
+    z-index: 1000;
+  }
+  li:hover{
+    background-color: white;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar ul li {
+    margin: 15px 0;
+  }
+
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .sidebar ul li a:hover {
+    color: #1fbf83;
+  }
+
+  .sidebar i {
+    margin-right: 10px;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 999;
+  }
+  .footer {
+    background: linear-gradient(to right, #294935, #62af7f);
+    padding: 0.5em 1em; 
+    text-align: center;
+    color: white;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    font-size: 0.9rem; 
+  }
+  .card-title{
+  font-size: 15px;
+  }
